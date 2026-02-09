@@ -1,0 +1,69 @@
+# ===============================
+# Miscellaneous
+# ===============================
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# ===============================
+# IntelliJ / Android Studio
+# ===============================
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# ===============================
+# VS Code
+# (descomenta si NO quieres versionar configs)
+# ===============================
+#.vscode/
+
+# ===============================
+# Flutter / Dart / Pub
+# ===============================
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+coverage/
+
+# ===============================
+# Flutter Windows (CRÍTICO)
+# ===============================
+windows/flutter/ephemeral/
+
+# ===============================
+# Android
+# ===============================
+# Build artifacts
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Memory dumps (CRÍTICO)
+android/*.hprof
+*.hprof
+
+# ===============================
+# Symbolication
+# ===============================
+app.*.symbols
+
+# ===============================
+# Obfuscation
+# ===============================
+app.*.map.json
