@@ -428,8 +428,8 @@ class _HomeScreenState extends State<HomeScreen>
                 ShaderMask(
                   shaderCallback: (bounds) => LinearGradient(
                     colors: isDark
-                        ? [Colors.white, Colors.white70]
-                        : [Colors.black87, Colors.black54],
+                        ? [Colors.white, const Color.fromARGB(255, 255, 255, 255)]
+                        : [const Color.fromARGB(255, 0, 0, 0), const Color.fromARGB(255, 0, 0, 0)],
                   ).createShader(bounds),
                   child: Text(
                     estaLogueado

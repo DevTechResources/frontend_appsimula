@@ -639,8 +639,8 @@ class _ProductoDetalleScreenState extends State<ProductoDetalleScreen>
             ShaderMask(
               shaderCallback: (bounds) => LinearGradient(
                 colors: isDark
-                    ? [Colors.white, Colors.white70]
-                    : [Colors.black87, Colors.black54],
+                    ? [Colors.white, const Color.fromARGB(255, 255, 255, 255)]
+                    : [const Color.fromARGB(255, 0, 0, 0), const Color.fromARGB(255, 0, 0, 0)],
               ).createShader(bounds),
               child: Text(
                 widget.producto.nombre,
@@ -837,8 +837,8 @@ class _ProductoDetalleScreenState extends State<ProductoDetalleScreen>
                   child: ShaderMask(
                     shaderCallback: (bounds) => LinearGradient(
                       colors: isDark
-                          ? [Colors.white, Colors.white70]
-                          : [Colors.black87, Colors.black54],
+                          ? [Colors.white, const Color.fromARGB(255, 255, 255, 255)]
+                          : [const Color.fromARGB(255, 0, 0, 0), const Color.fromARGB(255, 0, 0, 0)],
                     ).createShader(bounds),
                     child: Text(
                       'Descripción del Producto',
@@ -860,7 +860,7 @@ class _ProductoDetalleScreenState extends State<ProductoDetalleScreen>
                   Text(
                     descripcion,
                     style: theme.textTheme.bodyLarge?.copyWith(
-                      color: isDark ? Colors.white70 : Colors.black54,
+                      color: isDark ? const Color.fromARGB(255, 255, 255, 255) : const Color.fromARGB(255, 0, 0, 0),
                       height: 1.7,
                       letterSpacing: 0.3,
                       fontSize: 15,
@@ -927,7 +927,7 @@ class _ProductoDetalleScreenState extends State<ProductoDetalleScreen>
                   Text(
                     descripcion,
                     style: theme.textTheme.bodyLarge?.copyWith(
-                      color: isDark ? Colors.white70 : Colors.black54,
+                      color: isDark ? Colors.white70 : const Color.fromARGB(255, 0, 0, 0),
                       height: 1.7,
                       letterSpacing: 0.3,
                       fontSize: 15,
@@ -1123,8 +1123,8 @@ class _ProductoDetalleScreenState extends State<ProductoDetalleScreen>
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
-                              Colors.orange.shade400,
-                              Colors.orange.shade600,
+                              const Color.fromARGB(255, 0, 0, 0),
+                              const Color.fromARGB(255, 0, 0, 0),
                             ],
                           ),
                           borderRadius: BorderRadius.circular(8),
@@ -1139,8 +1139,8 @@ class _ProductoDetalleScreenState extends State<ProductoDetalleScreen>
                       ShaderMask(
                         shaderCallback: (bounds) => LinearGradient(
                           colors: isDark
-                              ? [Colors.white, Colors.white70]
-                              : [Colors.black87, Colors.black54],
+                              ? [Colors.white, const Color.fromARGB(255, 255, 255, 255)]
+                              : [const Color.fromARGB(255, 0, 0, 0), const Color.fromARGB(255, 0, 0, 0)],
                         ).createShader(bounds),
                         child: Text(
                           'Cantidad',
