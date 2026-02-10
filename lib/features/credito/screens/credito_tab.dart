@@ -1461,6 +1461,12 @@ class _CreditoTabState extends State<CreditoTab>
             : '${DateFormat('dd/MM').format(_fechaInicio!)} - ${DateFormat('dd/MM').format(_fechaFin!)}',
         style: const TextStyle(fontSize: 12),
       ),
+      style: OutlinedButton.styleFrom(
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+        minimumSize: const Size(0, 28),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        visualDensity: const VisualDensity(horizontal: -2, vertical: -2),
+      ),
     );
   }
 
@@ -2273,7 +2279,7 @@ class _CreditoCircularChartState extends State<CreditoCircularChart>
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      '\$${widget.cupoTotal.toStringAsFixed(2)}',
+                      '\$${widget.cupoTotal.toStringAsFixed(0)}',
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
@@ -2345,7 +2351,7 @@ class _CreditoCircularChartState extends State<CreditoCircularChart>
                       right: width * 0.05, // 5% del ancho desde la derecha
                       top: 0,
                       child: Text(
-                        '\$${widget.cupoTotal.toStringAsFixed(2)}',
+                        '\$${widget.cupoTotal.toStringAsFixed(0)}',
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w400,

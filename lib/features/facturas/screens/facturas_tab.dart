@@ -56,7 +56,7 @@ class _FacturasTabState extends State<FacturasTab>
   final Map<int, bool> _facturasSeleccionadas = {};
   bool _mostrarCheckboxes = false;
 
-  // 💳 Método de pago para abono a anticipos
+  // 💳 Método de pago para abon1o a anticipos
   String metodoPagoAbono = 'transferencia';
 
   @override
@@ -1671,72 +1671,59 @@ class _FacturasTabState extends State<FacturasTab>
                     ),
                 ],
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 0),
               // 💰 Información de Abonos + Botón Abonar (solo en modo Abono)
-              if (widget.modoAbonoMultiple)
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  alignment: WrapAlignment.spaceBetween,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    // Abono (solo información, NO es un botón)
-                    //ABONO
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'ABONOS',
-                          style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w800,
-                            color: const Color.fromARGB(
-                              255,
-                              203,
-                              197,
-                              0,
-                            ).withOpacity(0.9),
-                            letterSpacing: 1,
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          '\$${(authService.clienteActual?.anticipos ?? 0.0).toStringAsFixed(2)}',
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const SizedBox(width: 8),
-                        ElevatedButton.icon(
-                          onPressed: _showAbonoAnticipossDialog,
-                          icon: const Icon(
-                            Icons.account_balance_wallet,
-                            size: 14,
-                          ),
-                          label: const Text(
-                            'Abonar',
-                            style: TextStyle(fontSize: 12),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 6,
-                            ),
-                            backgroundColor: Colors.green.shade600,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+if (widget.modoAbonoMultiple)
+  SizedBox(
+    height: 44, // 👈 altura REAL del contenido
+    child: Stack(
+      children: [
+        // ABONOS
+        Positioned(
+          left: 10,
+          top: 10,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'ABONOS',
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w800,
+                  color: const Color.fromARGB(255, 203, 197, 0)
+                      .withOpacity(0.9),
                 ),
+              ),
+              Text(
+                '\$${(authService.clienteActual?.anticipos ?? 0.0).toStringAsFixed(2)}',
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        // BOTÓN ABONAR
+        Positioned(
+          right: 35,
+          bottom: -2,
+          child: ElevatedButton.icon(
+            onPressed: _showAbonoAnticipossDialog,
+            icon: const Icon(Icons.account_balance_wallet, size: 14),
+            label: const Text('Abonar', style: TextStyle(fontSize: 12)),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green.shade600,
+            ),
+          ),
+        ),
+      ],
+    ),
+  )
+
+
             ],
           ),
         ),
