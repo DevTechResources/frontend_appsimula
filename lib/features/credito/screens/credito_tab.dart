@@ -1060,13 +1060,13 @@ class _CreditoTabState extends State<CreditoTab>
                   ),
                   child: Row(
                     children: [
-                      Expanded(child: _filtroFecha()),
-                      const SizedBox(width: 6),
+                      _filtroFecha(),
+                      const SizedBox(width: 2),
                       Expanded(child: _filtroBusqueda()),
-                      const SizedBox(width: 6),
-                      Expanded(child: _filtroMonto()),
-                      const SizedBox(width: 6),
-                      TextButton.icon(
+                      const SizedBox(width: 10),
+                      /*                       Expanded(child: _filtroMonto()),
+                      const SizedBox(width: 6), */
+                      /*                       TextButton.icon(
                         onPressed: () =>
                             _toggleSeleccionarTodo(facturasPendientes),
                         icon: const Icon(Icons.done_all, size: 16),
@@ -1079,8 +1079,8 @@ class _CreditoTabState extends State<CreditoTab>
                           minimumSize: const Size(0, 32),
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
-                      ),
-                      const SizedBox(width: 6),
+                      ), */
+                     const SizedBox(width: 6),
                       TextButton.icon(
                         onPressed: hayFiltros ? _limpiarFiltros : null,
                         icon: const Icon(Icons.clear, size: 16),
@@ -1096,7 +1096,7 @@ class _CreditoTabState extends State<CreditoTab>
                           minimumSize: const Size(0, 32),
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
-                      ),
+                      ), 
                     ],
                   ),
                 ),
@@ -1451,24 +1451,24 @@ class _CreditoTabState extends State<CreditoTab>
     );
   } // 🏷️ Filtro de fecha compacto
 
-  Widget _filtroFecha() {
-    return OutlinedButton.icon(
-      onPressed: _seleccionarRangoFechasFacturas,
-      icon: const Icon(Icons.date_range, size: 18),
-      label: Text(
-        _fechaInicio == null
-            ? ''
-            : '${DateFormat('dd/MM').format(_fechaInicio!)} - ${DateFormat('dd/MM').format(_fechaFin!)}',
-        style: const TextStyle(fontSize: 12),
-      ),
-      style: OutlinedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
-        minimumSize: const Size(0, 28),
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        visualDensity: const VisualDensity(horizontal: -2, vertical: -2),
-      ),
-    );
-  }
+Widget _filtroFecha() {
+  return TextButton.icon(
+    onPressed: _seleccionarRangoFechasFacturas,
+    icon: const Icon(Icons.date_range, size: 18),
+    label: Text(
+      _fechaInicio == null
+          ? ''
+          : '${DateFormat('dd/MM').format(_fechaInicio!)} - ${DateFormat('dd/MM').format(_fechaFin!)}',
+      style: const TextStyle(fontSize: 12),
+    ),
+    style: TextButton.styleFrom(
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+      minimumSize: const Size(0, 28),
+      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      foregroundColor: Colors.black,
+    ),
+  );
+}
 
   // 🏷️ Filtro de búsqueda (cliente/factura)
   Widget _filtroBusqueda() {
@@ -1477,7 +1477,7 @@ class _CreditoTabState extends State<CreditoTab>
       child: TextField(
         decoration: const InputDecoration(
           isDense: true,
-          hintText: 'N° Factura',
+          hintText: 'Buscar',
           border: OutlineInputBorder(),
           contentPadding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
         ),
@@ -1492,7 +1492,7 @@ class _CreditoTabState extends State<CreditoTab>
   }
 
   // 🏷️ Filtro de monto
-  Widget _filtroMonto() {
+  /*   Widget _filtroMonto() {
     return SizedBox(
       width: 80,
       child: TextField(
@@ -1511,7 +1511,7 @@ class _CreditoTabState extends State<CreditoTab>
         },
       ),
     );
-  }
+  } */
 
   //AQUI?
   String _getTextoAbonoInfo(double montoIngresado, double montoTotal) {
